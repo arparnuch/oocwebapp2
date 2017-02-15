@@ -9,9 +9,8 @@
 <h1>Log-In Page</h1>
 <form action="/login" method="post">
     Enter username : <input type="text" name="username" value="test"> <BR>
-
     Enter password : <input type="password" name="password" value="test"> <BR>
-    <input class="btn btn-default" type="submit" />
+    <input class="btn btn-primary" type="submit" />
 </form>
 </body>
 </html>

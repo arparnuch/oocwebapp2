@@ -1,7 +1,5 @@
 package io.muic.ooc;
 
-import javax.servlet.http.Cookie;
-
 /**
  * Created by arparnuch on 2/13/2017 AD.
  */
@@ -12,20 +10,19 @@ public class User {
     private String lastname;
     private String email;
     boolean authen = false;
-    private Cookie cookie;
 
-    public User(String username, String password, Cookie cookie){
+
+    public User(String username, String password){
         this.username = username;
         this.password = password;
-        this.cookie = cookie;
+
     }
 
 
 
-    public User(String username, String password, Cookie cookie, String firstname,String lastname, String email){
+    public User(String username, String password,String firstname,String lastname, String email){
         this.username = username;
         this.password = password;
-        this.cookie = cookie;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -33,13 +30,7 @@ public class User {
     }
 
 
-    public Cookie getCookie() {
-        return cookie;
-    }
 
-    public void setCookie(Cookie cookie) {
-        this.cookie = cookie;
-    }
 
     public String getUsername() {
         return username;

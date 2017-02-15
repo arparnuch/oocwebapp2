@@ -37,15 +37,16 @@ public class LoginServlet extends HttpServlet{
 
 
         MySQLJava database = new MySQLJava();
-        User user = new User(UserUsername,UserPassword,null);
+        User user = new User(UserUsername,UserPassword);
         try {
             database.connectDatabase();
             database.queryData("SELECT * FROM ooc_webapp.accessTable");
 
-            boolean isIn = database.readData("login", user);
-            if (isIn){
+//            boolean isIn = database.readData("login", user);
+            User resultUser = database.isValidUser(user);
+            if (resultUser != null){
                 user.setAuthen(true);
-                req.getSession().setAttribute("currentUser", user);
+                req.getSession().setAttribute("currentUser", resultUser);
                 resp.sendRedirect("/userslists");//
             }
             else{

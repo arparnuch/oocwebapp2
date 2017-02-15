@@ -42,7 +42,7 @@ public class RegisterServlet extends HttpServlet{
             resp.sendRedirect("/login");
         }
         try {
-            flag = mySQLJava.readData("register",new User(UserUsername,UserPassword,null,UserFirstname, UserLastname,UserEmail));
+            flag = mySQLJava.insertData(new User(UserUsername,UserPassword,UserFirstname, UserLastname,UserEmail));
         } catch (Exception e) {
             e.printStackTrace();
         }finally {

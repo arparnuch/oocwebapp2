@@ -61,23 +61,7 @@ public class MySQLJava {
 
     }
 
-    public boolean readData(String mode, User user) throws Exception {
-        boolean flag = false;
-//        statement.executeQuery();
-        System.out.println("Read data ...");
-        if (mode.equals("login")){
-            System.out.println("Login");
-            flag = isValidUser(resultSet, user);
-        }
-        else if (mode.equals("register")){
-            System.out.println("Register");
-            flag = insertData(user);
-        }
 
-        close();
-        return flag;
-
-    }
 
     public boolean insertData(User user) {
 
@@ -177,7 +161,7 @@ public class MySQLJava {
             surname = resultSet.getString("SURNAME");
             email = resultSet.getString("EMAIL");
 
-            users.add(new User(username,password,null,firstname,surname,email));
+            users.add(new User(username,password,firstname,surname,email));
 
 
 
@@ -187,20 +171,29 @@ public class MySQLJava {
     }
 
 
-    private boolean isValidUser(ResultSet resultSet, User user) throws Exception {
+    public User isValidUser(User user) throws Exception {
         int id;
         String username;
         String password;
+        String firstname;
+        String lastname;
+        String email;
+
 
         System.out.println("Enter isValid");
         while (resultSet.next()) {
             username = resultSet.getString("USERNAME");
             password = resultSet.getString("PASSWORD");
+            firstname = resultSet.getString("FIRSTNAME");
+            lastname = resultSet.getString("SURNAME");
+            email = resultSet.getString("EMAIL");
+
+
             if (user.getUsername().equals(username) && user.getPassword().equals(password)){
-                return true;
+                return new User(username,password,firstname,lastname,email);
             }
         }
-        return false;
+        return null;
     }
 
 
