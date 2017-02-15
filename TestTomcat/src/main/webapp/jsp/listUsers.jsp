@@ -41,9 +41,9 @@
                 </c:when>
             </c:choose>
             <td>
-                <form action="/userslists" method="post">
-                    <input type="submit" name="result" value="Edit">
-                </form>
+
+            <td><a class="btn btn-default" href="/edit?username=${u.username}&amp;password=${u.password}&amp;firstname=${u.firstname}&amp;lastname=${u.lastname}&amp;email=${u.email}">Edit</a></td>
+
             </td>
         </tr>
     </c:forEach>

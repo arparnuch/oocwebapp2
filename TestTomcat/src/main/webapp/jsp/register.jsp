@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -19,7 +21,7 @@
     Enter your firstname : <input type="text" name="firstname"> <BR>
     Enter your lastname : <input type="text" name="lastname"> <BR>
     Enter your email : <input type="text" name="email"> <BR>
-    <input type="submit" />
+    <input class="btn btn-default" type="submit" />
 </form>
 </body>
 </html>

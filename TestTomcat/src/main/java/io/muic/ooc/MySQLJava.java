@@ -130,20 +130,22 @@ public class MySQLJava {
 
 
 
-    public boolean editData(User user){
+    public boolean editData(String username, String pass, String firstname, String lastname, String email){
         boolean flag = true;
-        System.out.println("EDITTING....");
+
+        System.out.println(username +" EDITTING....");
 //        UPDATE Customers
 //        SET City='Hamburg'
 //        WHERE CustomerID=1;
         try {
+            System.out.println("Firstname that enter into DB: " + firstname);
             preparedStatement = connection.prepareStatement("UPDATE ooc_webapp.accessTable SET PASSWORD=?,FIRSTNAME=?,SURNAME=?,EMAIL=? WHERE USERNAME=?");
 
-            preparedStatement.setString(1, encode.hash(user.getPassword()));
-            preparedStatement.setString(2, user.getFirstname());
-            preparedStatement.setString(3, user.getLastname());
-            preparedStatement.setString(4, user.getEmail());
-            preparedStatement.setString(5, user.getUsername());
+            preparedStatement.setString(1, encode.hash(pass));
+            preparedStatement.setString(2, firstname);
+            preparedStatement.setString(3, lastname);
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, username);
             preparedStatement.executeUpdate();
             System.out.println("Database UPDATED! {EDIT}");
         }catch (SQLException e){
@@ -153,6 +155,7 @@ public class MySQLJava {
         }finally {
 
             close();
+            System.out.println("Edit data complete");
             return flag;
         }
     }
