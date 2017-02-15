@@ -34,7 +34,12 @@
             <td>${u.firstname}</td>
             <td>${u.lastname}</td>
             <td>${u.email}</td>
-            <td><a class="btn btn-default" href="/deleteusers?username=${u.username}">Delete</a></td>
+            <c:choose>
+                <c:when test="${u.username!=notallowuser.username}">
+                    <td><a class="btn btn-default" href="/deleteusers?username=${u.username}">Delete</a></td>
+
+                </c:when>
+            </c:choose>
             <td>
                 <form action="/userslists" method="post">
                     <input type="submit" name="result" value="Edit">

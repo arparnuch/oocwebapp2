@@ -2,7 +2,6 @@ package io.muic.ooc.Servlet;
 
 import io.muic.ooc.MySQLJava;
 import io.muic.ooc.User;
-import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -24,7 +22,7 @@ public class UserListServlet extends HttpServlet{
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ///GET USER FROM SESSION --> GET USERNAME
 
-        if (StringUtils.isBlank(((User) req.getSession().getAttribute("currentUser")).getUsername())){
+        if (req.getSession().getAttribute("currentUser") == null){
             resp.sendRedirect("/login"); // login page
         }
 
@@ -44,6 +42,8 @@ public class UserListServlet extends HttpServlet{
             e.printStackTrace();
             System.out.println("DB FAIL");
         }finally {
+
+            req.setAttribute("notallowuser", req.getSession().getAttribute("currentUser"));
             req.setAttribute("users", userArrayList);
             RequestDispatcher rd = req.getRequestDispatcher("jsp/listUsers.jsp");
             rd.include(req, resp);

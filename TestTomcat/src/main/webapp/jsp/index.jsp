@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Log-In Page</h1>
-<form action="HomeServlet" method="post">
+<form action="/login" method="post">
     Enter username : <input type="text" name="username" value="test"> <BR>
 
     Enter password : <input type="password" name="password" value="test"> <BR>

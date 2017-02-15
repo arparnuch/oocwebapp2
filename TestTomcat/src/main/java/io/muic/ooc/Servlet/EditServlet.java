@@ -14,11 +14,14 @@ import java.io.IOException;
 public class EditServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+//        super.doGet(req, resp);
+        if (req.getSession().getAttribute("currentUser") == null){
+            resp.sendRedirect("/login"); // login page
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+//        super.doPost(req, resp);
     }
 }

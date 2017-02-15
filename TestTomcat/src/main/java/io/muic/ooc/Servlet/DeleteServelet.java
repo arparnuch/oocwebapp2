@@ -18,7 +18,12 @@ import java.io.IOException;
 public class DeleteServelet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String u = req.getParameter("username");
+        String u = req.getParameter("username"); // selected user to be removed
+
+
+        if (req.getSession().getAttribute("currentUser") == null){
+            resp.sendRedirect("/login"); // login page
+        }
         req.setAttribute("u", u);
         req.getSession().setAttribute("u", u);
         RequestDispatcher rd = req.getRequestDispatcher("jsp/delete.jsp");
