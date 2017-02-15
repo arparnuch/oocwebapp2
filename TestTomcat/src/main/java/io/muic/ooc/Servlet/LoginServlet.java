@@ -35,6 +35,7 @@ public class LoginServlet extends HttpServlet{
         String UserPassword = req.getParameter("password");
 
 
+
         MySQLJava database = new MySQLJava();
         User user = new User(UserUsername,UserPassword,null);
         try {

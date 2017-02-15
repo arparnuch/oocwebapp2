@@ -49,6 +49,9 @@
     </c:forEach>
 </table>
 <a class="btn btn-default" href="/register">Add</a>
+<form action="/userslists" method="post">
+    <input class="btn btn-danger" type="submit" name="logout" value="Logout"/>
+</form>
 <%--<form action="/register" method="post">--%>
     <%--<input type="submit" name="result" value="Add">--%>
 <%--</form>--%>

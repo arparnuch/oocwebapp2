@@ -2,6 +2,7 @@ package io.muic.ooc.Servlet;
 
 import io.muic.ooc.MySQLJava;
 import io.muic.ooc.User;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,6 +26,7 @@ public class UserListServlet extends HttpServlet{
         if (req.getSession().getAttribute("currentUser") == null){
             resp.sendRedirect("/login"); // login page
         }
+
 
         System.out.println("Enter Get in User List");
 
@@ -55,6 +57,11 @@ public class UserListServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Enter Post");
+        if (!StringUtils.isBlank(req.getParameter("logout"))){
+            req.getSession().invalidate();
+            resp.sendRedirect("/login");
+            System.out.println("Logout");
+        }
 
         Enumeration<String> parameterNames = req.getParameterNames();
 
