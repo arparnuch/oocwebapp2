@@ -18,11 +18,11 @@
 <h2>User you want to delete is : ${u}</h2>
 
 <form action="/userslists" method="get">
-    <input class="btn btn-default" type="submit" name="back" value="cancel"/>
+    <input class="btn btn-primary" type="submit" name="back" value="cancel"/>
 </form>
 
 <form action="/deleteusers" method="post">
-    <input class="btn btn-default" type="submit" name="ok" value="OK"/>
+    <input class="btn btn-success" type="submit" name="ok" value="OK"/>
 </form>
 
 

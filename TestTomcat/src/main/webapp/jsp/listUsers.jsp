@@ -59,11 +59,6 @@
 <form action="/userslists" method="post">
     <input class="btn btn-danger" type="submit" name="logout" value="Logout"/>
 </form>
-<%--<form action="/register" method="post">--%>
-    <%--<input type="submit" name="result" value="Add">--%>
-<%--</form>--%>
-<%--<c:forEach var="u" items="${users}">--%>
-    <%--${u.username}--%>
-<%--</c:forEach>--%>
+
 </body>
 </html>

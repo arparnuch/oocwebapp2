@@ -21,12 +21,8 @@
     Enter firstname : <input type="text" name="firstname" value="${f}"> <BR>
     Enter lastname : <input type="text" name="lastname" value="${l}"> <BR>
     Enter email : <input type="text" name="email" value="${e}"> <BR>
-
-    <input class="btn btn-default" type="submit" name="" value="Submit"/>
+    <input class="btn btn-success" type="submit" name="" value="Submit"/>
 </form>
-
-<a class="btn btn-default" href="/userslists">Back</a>
-
-
+<a class="btn btn-primary" href="/userslists">Back</a>
 </body>
 </html>

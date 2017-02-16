@@ -21,7 +21,8 @@
     Enter your firstname : <input type="text" name="firstname"> <BR>
     Enter your lastname : <input type="text" name="lastname"> <BR>
     Enter your email : <input type="text" name="email"> <BR>
-    <input class="btn btn-default" type="submit" />
+    <input class="btn btn-success" type="submit" />
 </form>
+<a class="btn btn-primary" href="/userslists">Back</a>
 </body>
 </html>
