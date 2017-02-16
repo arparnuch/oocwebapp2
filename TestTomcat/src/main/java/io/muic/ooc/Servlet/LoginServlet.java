@@ -35,17 +35,19 @@ public class LoginServlet extends HttpServlet{
         String UserPassword = req.getParameter("password");
 
 
-
         MySQLJava database = new MySQLJava();
-        User user = new User(UserUsername,UserPassword);
+        Encode encode = new Encode();
+        encode.hash(UserPassword);
+        System.out.println("Enter in Login: ");
+
+
         try {
             database.connectDatabase();
-            database.queryData("SELECT * FROM ooc_webapp.accessTable");
+            database.queryData("SELECT * FROM ooc_webapp.accessTable WHERE USERNAME='" + UserUsername+"'");
 
-//            boolean isIn = database.readData("login", user);
-            User resultUser = database.isValidUser(user);
+            User resultUser = database.isValidUser(UserUsername,encode.hash(UserPassword));
             if (resultUser != null){
-                user.setAuthen(true);
+                System.out.println("Valid username: "+resultUser.getUsername());
                 req.getSession().setAttribute("currentUser", resultUser);
                 resp.sendRedirect("/userslists");//
             }
@@ -58,7 +60,6 @@ public class LoginServlet extends HttpServlet{
             e.printStackTrace();
         }finally {
             System.out.println("After Login");
-//            database.close();
         }
 
 

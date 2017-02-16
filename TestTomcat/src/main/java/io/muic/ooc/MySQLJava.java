@@ -171,7 +171,7 @@ public class MySQLJava {
     }
 
 
-    public User isValidUser(User user) throws Exception {
+    public User isValidUser(String usern, String passw) throws Exception {
         int id;
         String username;
         String password;
@@ -184,12 +184,15 @@ public class MySQLJava {
         while (resultSet.next()) {
             username = resultSet.getString("USERNAME");
             password = resultSet.getString("PASSWORD");
+            System.out.println("inside database : " + username + " " +password);
+            System.out.println("INput: " + usern + " " + passw);
             firstname = resultSet.getString("FIRSTNAME");
             lastname = resultSet.getString("SURNAME");
             email = resultSet.getString("EMAIL");
 
 
-            if (user.getUsername().equals(username) && user.getPassword().equals(password)){
+            if (usern.equals(username) && passw.equals(password)){
+                System.out.println("User Authen!");
                 return new User(username,password,firstname,lastname,email);
             }
         }

@@ -8,8 +8,8 @@
 <body>
 <h1>Log-In Page</h1>
 <form action="/login" method="post">
-    Enter username : <input type="text" name="username" value="test"> <BR>
-    Enter password : <input type="password" name="password" value="test"> <BR>
+    Enter username : <input type="text" name="username"> <BR>
+    Enter password : <input type="password" name="password"> <BR>
     <input class="btn btn-primary" type="submit" />
 </form>
 </body>
