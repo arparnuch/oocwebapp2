@@ -43,6 +43,11 @@ public class RegisterServlet extends HttpServlet{
         }
         try {
             flag = mySQLJava.insertData(new User(UserUsername,UserPassword,UserFirstname, UserLastname,UserEmail));
+            if (flag==false){
+
+            }else {
+
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }finally {

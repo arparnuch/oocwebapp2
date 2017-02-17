@@ -49,7 +49,7 @@ public class UserListServlet extends HttpServlet{
             req.setAttribute("users", userArrayList);
             RequestDispatcher rd = req.getRequestDispatcher("jsp/listUsers.jsp");
             rd.include(req, resp);
-            DB.close();
+//            DB.close();
             System.out.println("Finish of user table");
         }
     }

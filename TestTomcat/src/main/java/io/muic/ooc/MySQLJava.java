@@ -83,8 +83,9 @@ public class MySQLJava {
             flag = !flag;
             System.out.println("SQL FAIL!! OR username is duplicate");
             System.out.println(e.getMessage());
+
         }finally {
-            close();
+//            close();
             return flag;
 
         }
@@ -138,7 +139,7 @@ public class MySQLJava {
             System.out.println(e.getMessage());
         }finally {
 
-            close();
+//            close();
             System.out.println("Edit data complete");
             return flag;
         }
