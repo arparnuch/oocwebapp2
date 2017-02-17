@@ -47,7 +47,7 @@ public class UserListServlet extends HttpServlet{
 
             req.setAttribute("notallowuser", req.getSession().getAttribute("currentUser"));
             req.setAttribute("users", userArrayList);
-            RequestDispatcher rd = req.getRequestDispatcher("jsp/listUsers.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/listUsers.jsp");
             rd.include(req, resp);
 //            DB.close();
             System.out.println("Finish of user table");

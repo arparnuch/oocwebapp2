@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet{
             System.out.println(req.getSession().getAttribute("currentUser"));
             resp.sendRedirect("/userslists");
         }else {
-            req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
             System.out.println("Enter Get in Login");
         }
     }

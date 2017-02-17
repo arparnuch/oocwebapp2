@@ -26,7 +26,7 @@ public class DeleteServelet extends HttpServlet{
         }
         req.setAttribute("u", u);
         req.getSession().setAttribute("u", u);
-        RequestDispatcher rd = req.getRequestDispatcher("jsp/delete.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/delete.jsp");
         rd.include(req, resp);
 //        req.getRequestDispatcher("jsp/delete.jsp").forward(req, resp);
         System.out.println("Enter Get in Delete");

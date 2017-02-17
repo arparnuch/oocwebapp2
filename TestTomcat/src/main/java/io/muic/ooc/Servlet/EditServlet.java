@@ -36,7 +36,7 @@ public class EditServlet extends HttpServlet{
         req.setAttribute("e", e);
 
         req.getSession().setAttribute("u", u);
-        RequestDispatcher rd = req.getRequestDispatcher("jsp/edit.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/edit.jsp");
         rd.include(req, resp);
 
 //        req.getRequestDispatcher("jsp/edit.jsp").forward(req, resp);

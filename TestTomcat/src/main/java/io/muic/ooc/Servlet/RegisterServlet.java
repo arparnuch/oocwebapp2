@@ -22,7 +22,7 @@ public class RegisterServlet extends HttpServlet{
         if (req.getSession().getAttribute("currentUser") == null){
             resp.sendRedirect("/login"); // login page
         }
-        req.getRequestDispatcher("jsp/register.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/register.jsp").forward(req, resp);
         System.out.println("Enter Get in RegisterServlet");
     }
 

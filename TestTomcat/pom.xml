@@ -35,7 +35,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>io.muic.ooc.webapp.Webapp</mainClass>
+                            <mainClass>io.muic.ooc.Webapp</mainClass>
                             <name>webapp</name>
                         </program>
                     </programs>
