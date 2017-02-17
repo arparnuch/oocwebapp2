@@ -13,10 +13,6 @@ import java.io.IOException;
 
 
 
-/**
- * Created by arparnuch on 2/13/2017 AD.
- */
-
 
 
 @WebServlet("/login")
@@ -24,8 +20,14 @@ public class LoginServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
-        System.out.println("Enter Get in Login");
+        if (req.getSession().getAttribute("currentUser") != null){
+            System.out.println("enter in not null");
+            System.out.println(req.getSession().getAttribute("currentUser"));
+            resp.sendRedirect("/userslists");
+        }else {
+            req.getRequestDispatcher("jsp/index.jsp").forward(req, resp);
+            System.out.println("Enter Get in Login");
+        }
     }
 
     @Override

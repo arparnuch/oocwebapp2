@@ -81,7 +81,7 @@ public class MySQLJava {
             System.out.println("Database UPDATED! {insert}");
         } catch (SQLException e) {
             flag = !flag;
-            System.out.println("SQL FAIL!!");
+            System.out.println("SQL FAIL!! OR username is duplicate");
             System.out.println(e.getMessage());
         }finally {
             close();
