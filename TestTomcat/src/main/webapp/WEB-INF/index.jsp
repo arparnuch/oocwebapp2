@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <html>
@@ -7,6 +9,7 @@
 </head>
 <body>
 <h1>Log-In Page</h1>
+<p>${error}</p>
 <form action="/login" method="post">
     Enter username : <input type="text" name="username"> <BR>
     Enter password : <input type="password" name="password"> <BR>

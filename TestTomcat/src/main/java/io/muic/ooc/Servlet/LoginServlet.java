@@ -3,13 +3,15 @@ package io.muic.ooc.Servlet;
 import io.muic.ooc.MySQLJava;
 import io.muic.ooc.User;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
 import java.io.IOException;
+
+//import javax.swing.*;
 
 
 
@@ -25,7 +27,7 @@ public class LoginServlet extends HttpServlet{
             System.out.println(req.getSession().getAttribute("currentUser"));
             resp.sendRedirect("/userslists");
         }else {
-            req.getRequestDispatcher("WEB-INF/index.jsp").forward(req, resp);
+            req.getRequestDispatcher("WEB-INF/index.jsp").forward(req,resp);
             System.out.println("Enter Get in Login");
         }
     }
@@ -54,8 +56,13 @@ public class LoginServlet extends HttpServlet{
                 resp.sendRedirect("/userslists");//
             }
             else{
-                JOptionPane.showMessageDialog(null, "Fail to Login!");
-                resp.sendRedirect("/login"); // login page
+//                JOptionPane.showMessageDialog(null, "Fail to Login!");
+                String error = "Fail to Login!";
+                req.setAttribute("error", error);
+                RequestDispatcher rd = req.getRequestDispatcher("WEB-INF/index.jsp");
+//                rd.include(req, resp);
+                rd.forward(req,resp);
+//                resp.sendRedirect("/login"); // login page
             }
 
         } catch (Exception e) {
